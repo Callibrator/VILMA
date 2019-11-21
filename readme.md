@@ -1,21 +1,21 @@
 # VILMA
-It is a small server that uses tcp/ip protocol to receive requests from varius devices & clients. It controls vlc player to play music. It may be useful for smart homes or similar cases where you need to control a music station from your smartphone or siri,alex etc... No, I have not developed any alexa skills,mobile apps or anything else yet for controlling the server, I believe that this will be my next step in the future when I find some time!!!
-
+VILMA Stands for: VLC Intergrated Light Music API. It is a small server that uses tcp/ip protocol to receive requests from varius devices & clients. It controls vlc player to play music. It may be useful for smart homes or similar cases where you need to control a music station from your smartphone or siri,alex etc... No, I have not developed any alexa skills,mobile apps or anything else yet for controlling the server, I believe that this will be my next step in the future when I find some time!!!
 ## Installation
-### For both linux & windows systems!
+
+### Both Linux & Windows users are required to do the following!
 first download & install python 3.6
 Second, use pip to install all the requirments existing in the requirments.txt file. Command:
 ```
 pip install -r requirments.txt
 ```
 
-### For Linux:
+### For Linux Users Only:
 you will have to download vlc player now. in case you are running ubuntu you can do it by the following command:
 ```
 sudo apt install vlc
 ```
 
-### For Windows
+### For Windows Users Only
 Download vlc player from its official site. Can be found [here](https://www.videolan.org/vlc/index.html)
 
 
