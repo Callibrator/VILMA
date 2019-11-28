@@ -6,5 +6,5 @@ music_folder = r"F:\MyData\Music"
 
 
 #Server Settings:
-host = "127.0.0.1"
+host = "192.168.1.2"
 port = 2019

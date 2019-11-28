@@ -85,16 +85,17 @@ class Server():
 
             #Receiving Data
             data = ""
-            while True:
-                try:
-                    temp_data = client.recv(2048).decode()
 
-                except:
-                    temp_data = ""
+            try:
+                temp_data = client.recv(2048).decode()
+                client.send(b"ok")
+                temp_data = client.recv(int(temp_data))
 
-                if temp_data == "":
-                    break
-                data += temp_data
+            except:
+                temp_data = ""
+
+
+            data = temp_data
 
 
             try:
@@ -109,12 +110,18 @@ class Server():
                 code = self.generate_response_from_code(4)
 
             try:
-                client.sendall(json.dumps(code).encode())
+                serialData = json.dumps(code).encode()
+                client.sendall(str(len(serialData)).encode())
+                res = client.recv(2048).decode()
+                if res == "ok":
+                    client.sendall(serialData)
                 client.close()
 
             except:
                 print("Error Closing Client")
                 pass
+
+
 
 
     def auto_run(self):

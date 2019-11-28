@@ -73,3 +73,14 @@ Execute api.py file
 - 3 - Unknown Error?
 - 4 - Basic Parameter(s) Missing
 - 5 - Invalid Value for parameter
+
+### How to make a request
+
+Connect to VILMA by using a tcp socket
+stringify a json object
+firstly send the length of the json-string and wait for a response. You should send the length as a string. "134" For example!
+the response should be <<ok>>, if it is not <<ok>> or if there is no response something went wrong
+In case the respond is ok go on and send the string-json object
+Wait for a response, it should be a string with the length of the data that will be send next.
+Once you have obtained the length send ok to vilma.
+After that receive the data! Done!

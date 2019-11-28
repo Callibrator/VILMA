@@ -18,6 +18,10 @@ t1 = {
 
 str_data = json.dumps(t1)
 
+s.sendall(str(len(str_data.encode())).encode())
+ret = s.recv(2048)
+if ret != b"ok":
+    exit(1)
 s.sendall(str_data.encode())
 
 
