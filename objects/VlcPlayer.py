@@ -22,6 +22,8 @@ class VlcPlayer:
 
         self.player.set_media_list(self.media_list)
 
+
+
     def play_song(self,song_path):
 
         current_song_index = self.get_playing_media()
@@ -148,8 +150,10 @@ class VlcPlayer:
     def pause(self):
         self.player.set_pause(1)
 
+
     def resume(self):
         self.player.set_pause(0)
+
 
     def toggle(self):
         self.player.pause()
@@ -172,6 +176,29 @@ class VlcPlayer:
             vol = 0
 
         self.player.get_media_player().audio_set_volume(int(vol))
+    def get_status(self):
+        status = {}
+        if self.player.is_playing():
+            status["state"] = "playing"
+        else:
+            status["state"] = "stopped"
+
+        current_media = self.player.get_media_player().get_media()
+        if current_media != None:
+            status["song_current_playing"] = current_media.get_mrl()
+        else:
+            status["song_current_playing"] = None
+
+
+        status["list"] = []
+        for i in range(self.media_list.count()):
+           state = self.media_list.item_at_index(i).get_state()
+
+           if (not vlc.State.Ended == state) and (not vlc.State.Error == state) and (not vlc.State.Stopped == state):
+               status["list"].append(self.media_list.item_at_index(i).get_mrl())
+
+
+        return status
 
 
 if __name__ == "__main__":
@@ -184,14 +211,8 @@ if __name__ == "__main__":
     v.add_song_end(r'F:\MyData\Music\Chaos Chaos - 2014 - Committed to the crime\Chaos Chaos - 04 - West Side.flac')
     v.add_song_end(r'F:\MyData\Music\Chaos Chaos - 2014 - Committed to the crime\Chaos Chaos - 05 - Monsters.flac')
     v.start()
-    time.sleep(5)
 
-    v.pause()
-    v.pause()
-    time.sleep(3)
-    print("Ressuming")
-    v.resume()
-    v.resume()
+    print(str(v.get_status()))
 
 
     print(v.get_playing_media())

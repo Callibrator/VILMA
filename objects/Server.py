@@ -24,6 +24,7 @@ Possible values for command:
     add: adds song the the end of the playlist
     play_next: adds song to next to the song that it is currently playing
     get_songs: returns a list with all songs
+    status: returns a json object that describes the current status of the player!
 
 
 Possible values for song_name:
@@ -224,6 +225,11 @@ class Server():
             songs = get_songs_by_name(".*",config.music_folder)
             ret = self.generate_response_from_code(1)
             ret["data"] = songs
+            return ret
+        elif response["command"].lower() == "status":
+            results = self.player.get_status()
+            ret = self.generate_response_from_code(1)
+            ret["data"] = results
             return ret
 
         else:
