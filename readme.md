@@ -1,5 +1,13 @@
 # VILMA
-VILMA Stands for: VLC Intergrated Light Music API. It is a small server that uses tcp/ip protocol to receive requests from varius devices & clients. It controls vlc player to play music. It may be useful for smart homes or similar cases where you need to control a music station from your smartphone or siri,alex etc... No, I have not developed any alexa skills,mobile apps or anything else yet for controlling the server, I believe that this will be my next step in the future when I find some time!!!
+VILMA Stands for: VLC Intergrated Light Music API. It is a small server that uses tcp/ip protocol to receive requests from varius devices & clients. It controls vlc player to play music. It may be useful for smart homes or similar cases where you need to control a music station from your smartphone or siri,alex etc... I have developed a mobile/web app & web API for controlling vilma!
+
+## Other Softwares
+
+[Vilma Web API](https://github.com/Callibrator/vilma_web_api)
+[Vilma APP](https://github.com/Callibrator/vilma_app)
+[Vilma APP (PlayStore)](https://play.google.com/store/apps/details?id=com.callibrator.callibrator.vilma)
+
+
 
 <p align="center">
   <img src="/resources/logo.png">
