@@ -1,10 +1,12 @@
-
 import config
 import socket
 import json
 
+host = input("Enter Elsa Host: ")
+port = input("Enter Elsa Port: ")
+
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-s.connect((config.host,config.port))
+s.connect((host, int(port)))
 
 
 example = {
